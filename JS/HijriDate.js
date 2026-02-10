@@ -46,15 +46,16 @@ class HijriDate {
         }
         // Intermediate Julian to Gregorian conversion (preserved from original algorithm)
         const bb = jd + b + 1524;
-        const cc = Math.floor((bb - 122.1) / 365.25);
+        let cc = Math.floor((bb - 122.1) / 365.25);
         const dd = Math.floor(365.25 * cc);
         const ee = Math.floor((bb - dd) / 30.6001);
-        const day2 = (bb - dd) - Math.floor(30.6001 * ee);
+        const day2 = (bb - dd) - Math.floor(30.6001 * ee); // Unused, preserved from original
         let month2 = ee - 1;
         if (ee > 13) {
+            cc += 1;
             month2 = ee - 13;
         }
-        const year2 = cc - 4716;
+        const year2 = cc - 4716; // Unused, preserved from original
 
         const wd = jd % 7; // Day of week (preserved from original)
         const iyear = 10631.0 / 30.0;
@@ -73,7 +74,7 @@ class HijriDate {
         if (im === 13) im = 12;
         const id = z - Math.floor(29.5001 * im - 29);
 
-        return [id, im, iy];
+        return [Math.floor(id), Math.floor(im), Math.floor(iy)];
     }
 
     /**
