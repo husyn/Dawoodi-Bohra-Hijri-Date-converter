@@ -49,13 +49,13 @@ class HijriDate {
         let cc = Math.floor((bb - 122.1) / 365.25);
         const dd = Math.floor(365.25 * cc);
         const ee = Math.floor((bb - dd) / 30.6001);
-        const day2 = (bb - dd) - Math.floor(30.6001 * ee); // Unused, preserved from original
-        let month2 = ee - 1;
+        const dayUnused = (bb - dd) - Math.floor(30.6001 * ee); // Preserved from original
+        let monthUnused = ee - 1;
         if (ee > 13) {
             cc += 1;
-            month2 = ee - 13;
+            monthUnused = ee - 13;
         }
-        const year2 = cc - 4716; // Unused, preserved from original
+        const yearUnused = cc - 4716; // Preserved from original
 
         const wd = jd % 7; // Day of week (preserved from original)
         const iyear = 10631.0 / 30.0;

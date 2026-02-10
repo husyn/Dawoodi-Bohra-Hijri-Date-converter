@@ -63,12 +63,12 @@ class HijriDate:
         cc = math.floor((bb - 122.1) / 365.25)
         dd = math.floor(365.25 * cc)
         ee = math.floor((bb - dd) / 30.6001)
-        day = (bb - dd) - math.floor(30.6001 * ee)  # Unused, preserved from original
-        month = ee - 1
+        day_unused = (bb - dd) - math.floor(30.6001 * ee)  # Preserved from original
+        month_unused = ee - 1
         if ee > 13:
             cc += 1
-            month = ee - 13
-        year = cc - 4716  # Unused, preserved from original
+            month_unused = ee - 13
+        year_unused = cc - 4716  # Preserved from original
 
         wd = jd % 7  # Day of week (preserved from original)
         iyear = 10631.0 / 30.0
