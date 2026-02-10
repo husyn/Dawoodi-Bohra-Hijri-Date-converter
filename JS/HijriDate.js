@@ -15,9 +15,9 @@ class HijriDate {
      * @returns {Array} Array containing [day, month, year] in Hijri calendar
      */
     static gregorianToHijri(date) {
-        const day = date.getDate();
-        const month = date.getMonth() + 1; // JavaScript months are 0-indexed
-        const year = date.getFullYear();
+        const day = date.getUTCDate();
+        const month = date.getUTCMonth() + 1; // JavaScript months are 0-indexed
+        const year = date.getUTCFullYear();
 
         let m = month;
         let y = year;
