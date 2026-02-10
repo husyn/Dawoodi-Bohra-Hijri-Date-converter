@@ -44,6 +44,7 @@ class HijriDate {
             const a2 = Math.floor((jd - 1867216.25) / 36524.25);
             b = 1 + a2 - Math.floor(a2 / 4.0);
         }
+        // Intermediate Julian to Gregorian conversion (preserved from original algorithm)
         const bb = jd + b + 1524;
         const cc = Math.floor((bb - 122.1) / 365.25);
         const dd = Math.floor(365.25 * cc);
@@ -55,10 +56,10 @@ class HijriDate {
         }
         const year2 = cc - 4716;
 
-        const wd = jd % 7;
+        const wd = jd % 7; // Day of week (preserved from original)
         const iyear = 10631.0 / 30.0;
         const epochastro = 1948084;
-        const epochcivil = 1948085;
+        const epochcivil = 1948085; // Preserved from original algorithm
 
         const shift1 = 8.01 / 60.0;
 

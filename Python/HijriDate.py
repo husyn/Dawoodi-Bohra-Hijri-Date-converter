@@ -58,6 +58,7 @@ class HijriDate:
             a = math.floor((jd - 1867216.25) / 36524.25)
             b = 1 + a - math.floor(a / 4.0)
         
+        # Intermediate Julian to Gregorian conversion (preserved from original algorithm)
         bb = jd + b + 1524
         cc = math.floor((bb - 122.1) / 365.25)
         dd = math.floor(365.25 * cc)
@@ -69,10 +70,10 @@ class HijriDate:
             month = ee - 13
         year = cc - 4716
 
-        wd = jd % 7
+        wd = jd % 7  # Day of week (preserved from original)
         iyear = 10631.0 / 30.0
         epochastro = 1948084
-        epochcivil = 1948085
+        epochcivil = 1948085  # Preserved from original algorithm
 
         shift1 = 8.01 / 60.0
 
